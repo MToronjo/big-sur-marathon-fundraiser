@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Macy Runs Big Sur</title>
+<meta name="description" content="Former UCLA gymnast Macy Toronjo is running the 2027 Big Sur International Marathon to raise $3,500 for ALS TDI.">
+<meta property="og:title" content="Macy Runs Big Sur · From 10.0 to 26.2">
+<meta property="og:description" content="A national champion gymnast takes on 26.2 miles of Highway 1 to raise $3,500 for ALS research.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: full-bleed coastline hero → story timeline → the course as an elevation profile Macy climbs as money comes in → mile-marker grid → the cause → closing call. Dark Pacific night, one bold gold accent. */
+:root {
+  --ink: #16343f;        /* night Pacific */
+  --deep: #1e4351;       /* raised surface */
+  --line: #37636f;       /* hairlines */
+  --fog: #e4ebe9;        /* main text */
+  --mist: #a9c0c1;       /* secondary text */
+  --gold: #f4b740;       /* golden hour, the one accent */
+  --gold-ink: #241703;   /* text on gold */
+  --sign: #0e6a3f;       /* Caltrans highway-sign green */
+  --sign-hi: #1b8a55;
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter: clamp(16px, 5vw, 64px);
+  --maxw: 1180px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ink); color: var(--fog); font: 400 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+.eyebrow { font: 600 12px/1.2 var(--body); letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 0; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+h2 { font: 800 clamp(40px, 6vw, 76px)/.95 var(--display); text-transform: uppercase; letter-spacing: .005em; }
+h2 em, h1 em { font: italic 400 1em/1 var(--serif); text-transform: none; color: var(--gold); letter-spacing: 0; }
+p { margin: 0; }
+.prose { max-width: 62ch; display: grid; gap: 1.1em; color: var(--fog); }
+.prose .lead { font: 400 clamp(22px, 2.4vw, 28px)/1.35 var(--serif); }
+.muted { color: var(--mist); }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: .6em; padding: 16px 28px; border-radius: 999px; font: 700 15px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, background .2s; }
+.btn-gold { background: var(--gold); color: var(--gold-ink); box-shadow: 0 10px 40px -10px rgba(244,183,64,.6); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 50px -10px rgba(244,183,64,.8); }
+.btn-ghost { color: var(--fog); border: 1px solid rgba(228,235,233,.35); }
+.btn-ghost:hover { border-color: var(--fog); }
+.btn span { transition: transform .2s; }
+.btn:hover span { transform: translateX(4px); }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; min-height: clamp(640px, 94vh, 940px); display: grid; grid-template-rows: auto 1fr auto; overflow: hidden; isolation: isolate; }
+#coast { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; display: block; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(22,52,63,.88) 0%, rgba(22,52,63,.55) 45%, rgba(22,52,63,0) 75%), linear-gradient(0deg, var(--ink) 0%, rgba(22,52,63,0) 30%); }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.mark { display: flex; align-items: center; gap: 12px; font: 800 20px/1 var(--display); letter-spacing: .12em; text-transform: uppercase; }
+.shield { width: 30px; height: 34px; flex: none; }
+.topbar nav { display: flex; gap: 22px; font: 600 12px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; }
+.topbar nav a { text-decoration: none; color: var(--mist); }
+.topbar nav a:hover { color: var(--fog); }
+.topbar nav a.give { color: var(--gold); }
+.hero-main { align-self: center; padding-block: 24px 40px; }
+.hero h1 { font: 900 clamp(84px, 15vw, 210px)/.82 var(--display); text-transform: uppercase; letter-spacing: -.01em; margin-block: 18px 28px; }
+.hero h1 .row { display: block; overflow: hidden; padding-bottom: .04em; }
+.hero h1 .row > span { display: inline-block; animation: rise 1.1s cubic-bezier(.2,.8,.2,1) both; }
+.hero h1 .row:nth-child(2) > span { animation-delay: .15s; }
+.hero h1 .num { color: var(--gold); }
+@keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+.hero .sub { max-width: 34em; font-size: clamp(17px, 1.6vw, 20px); color: var(--fog); }
+.hero .sub strong { color: var(--gold); font-weight: 600; }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+
+.dash { display: grid; grid-template-columns: auto 1fr; gap: clamp(20px, 4vw, 64px); align-items: end; padding-block: 0 40px; }
+.clock { display: flex; gap: clamp(12px, 2vw, 22px); }
+.clock div { display: grid; gap: 4px; }
+.clock strong { font: 800 clamp(40px, 5vw, 64px)/.9 var(--display); font-variant-numeric: tabular-nums; }
+.clock span, .meter-labels span { font: 600 11px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--mist); }
+.meter { display: grid; gap: 10px; min-width: 0; }
+.meter-labels { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.meter-labels b { font: 800 clamp(30px, 3.6vw, 44px)/1 var(--display); color: var(--gold); font-variant-numeric: tabular-nums; }
+.bar { height: 10px; border-radius: 999px; background: rgba(228,235,233,.14); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #e59a22, var(--gold)); border-radius: inherit; transition: width 1.6s cubic-bezier(.2,.8,.2,1); }
+
+/* ---------- Sections ---------- */
+section.block { padding-block: clamp(80px, 11vw, 150px); }
+.head { display: grid; gap: 18px; margin-bottom: clamp(36px, 5vw, 64px); }
+
+/* Story */
+.story-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.versus { display: grid; gap: 6px; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 36px; }
+.versus div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.versus b { font: 900 clamp(48px, 7vw, 92px)/.95 var(--display); }
+.versus b.g { color: var(--gold); }
+.versus span { font: italic 400 clamp(18px, 2vw, 24px)/1.2 var(--serif); color: var(--mist); text-align: right; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--line), var(--gold)); }
+.timeline li { display: grid; grid-template-columns: 16px 1fr; gap: 22px; padding-bottom: 34px; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--ink); border: 2px solid var(--mist); margin-top: 6px; position: relative; z-index: 1; }
+.timeline li:last-child .dot { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 6px rgba(244,183,64,.18); }
+.timeline .yr { font: 800 30px/1 var(--display); letter-spacing: .02em; }
+.timeline h3 { font: 600 17px/1.4 var(--body); margin-top: 6px; }
+.timeline p { color: var(--mist); font-size: 15px; margin-top: 4px; }
+
+/* Course */
+.course { background: linear-gradient(180deg, var(--ink), var(--deep) 30%, var(--deep) 70%, var(--ink)); }
+.course-top { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: end; margin-bottom: 40px; }
+.where { display: grid; gap: 6px; justify-items: start; }
+.where b { font: 900 clamp(64px, 9vw, 120px)/.85 var(--display); color: var(--gold); font-variant-numeric: tabular-nums; }
+.where span { font: 600 12px/1.3 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--mist); }
+.profile-scroll { overflow-x: auto; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+#profile { display: block; width: 100%; min-width: 720px; height: auto; }
+#profile text { font-family: var(--body); }
+.foot-note { font-size: 13px; color: var(--mist); margin-top: 14px; }
+
+.miles { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 10px; margin-top: clamp(48px, 7vw, 80px); }
+.mile { display: grid; gap: 2px; text-decoration: none; padding: 12px 10px 10px; border-radius: 8px; background: var(--sign); border: 2px solid rgba(255,255,255,.85); box-shadow: inset 0 0 0 3px var(--sign); color: #fff; text-align: center; transition: transform .2s, background .2s; }
+.mile small { font: 700 10px/1 var(--body); letter-spacing: .2em; }
+.mile b { font: 800 34px/1 var(--display); font-variant-numeric: tabular-nums; }
+.mile em { font: 500 10.5px/1.25 var(--body); font-style: normal; opacity: .85; min-height: 2.5em; display: grid; place-items: center; }
+.mile.done { background: var(--gold); color: var(--gold-ink); box-shadow: inset 0 0 0 3px var(--gold); border-color: var(--gold-ink); }
+.mile.here { animation: glow 1.8s ease-in-out infinite; }
+@keyframes glow { 50% { box-shadow: inset 0 0 0 3px var(--sign), 0 0 0 6px rgba(244,183,64,.35); } }
+.miles-note { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 18px; color: var(--mist); font-size: 15px; }
+.miles-note strong { color: var(--fog); }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: 1.5fr 1fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px; height: clamp(420px, 56vw, 680px); }
+.gallery figure { position: relative; margin: 0; overflow: hidden; border-radius: 6px; background: var(--deep); min-height: 0; }
+.gallery figure.big { grid-row: span 2; }
+.gallery figure.tall { grid-row: span 2; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s cubic-bezier(.2,.8,.2,1); }
+.gallery figure:hover img { transform: scale(1.04); }
+.gallery figcaption { position: absolute; inset: auto 0 0 0; padding: 40px 16px 14px; background: linear-gradient(transparent, rgba(22,52,63,.92)); font-size: 13.5px; line-height: 1.4; }
+.gallery figcaption b { display: block; font: 800 20px/1.05 var(--display); text-transform: uppercase; letter-spacing: .03em; color: var(--gold); margin-bottom: 2px; }
+.gallery figcaption small { display: block; color: var(--mist); font-size: 10.5px; margin-top: 4px; letter-spacing: .04em; }
+
+/* Playlist */
+.playlist-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.steps { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: baseline; counter-increment: s; }
+.steps li::before { content: counter(s); font: 800 26px/1 var(--display); color: var(--gold); }
+.tracks { border: 1px solid var(--line); border-radius: 10px; background: var(--deep); overflow: hidden; }
+.tracks-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--line); font: 600 11px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--mist); }
+.tracks-head b { color: var(--gold); font-weight: 700; }
+.tracks ol { list-style: none; margin: 0; padding: 0; max-height: 420px; overflow-y: auto; counter-reset: t; }
+.tracks li { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 13px 20px; border-bottom: 1px solid rgba(36,68,79,.6); counter-increment: t; }
+.tracks li:last-child { border-bottom: 0; }
+.tracks li::before { content: counter(t, decimal-leading-zero); font: 600 13px/1 var(--body); color: var(--mist); font-variant-numeric: tabular-nums; }
+.tracks .song { min-width: 0; }
+.tracks .song b { display: block; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tracks .song span { color: var(--mist); font-size: 14px; }
+.tracks .from { color: var(--mist); font-size: 12.5px; text-align: right; }
+.tracks li.empty::before { content: none; }
+.tracks .empty { padding: 40px 24px; text-align: center; color: var(--mist); }
+.tracks .empty b { display: block; font: 800 28px/1.1 var(--display); text-transform: uppercase; color: var(--fog); margin-bottom: 6px; }
+.eq { display: inline-flex; gap: 3px; align-items: end; height: 14px; }
+.eq i { width: 3px; background: var(--gold); animation: eq 1s ease-in-out infinite; }
+.eq i:nth-child(2) { animation-delay: -.3s; } .eq i:nth-child(3) { animation-delay: -.6s; }
+@keyframes eq { 0%,100% { height: 30%; } 50% { height: 100%; } }
+.darrel { font: italic 400 clamp(24px, 2.6vw, 32px)/1.3 var(--serif); color: var(--fog); padding-left: 22px; border-left: 3px solid var(--gold); margin-bottom: 8px; }
+
+/* Cause */
+.cause-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.facts { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.fact { display: grid; grid-template-columns: minmax(96px, auto) 1fr; gap: 24px; align-items: baseline; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.fact b { font: 800 clamp(38px, 4.4vw, 54px)/.9 var(--display); color: var(--gold); }
+.fact p { color: var(--fog); font-size: 16px; }
+.text-link { color: var(--gold); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(244,183,64,.4); padding-bottom: 2px; }
+.text-link:hover { border-color: var(--gold); }
+
+/* Finale */
+.finale { position: relative; text-align: left; overflow: hidden; border-top: 1px solid var(--line); }
+.finale h2 { font-size: clamp(56px, 11vw, 150px); line-height: .85; }
+.finale .row-end { display: flex; justify-content: space-between; align-items: end; gap: 28px; flex-wrap: wrap; margin-top: 36px; }
+.share { background: none; cursor: pointer; font: inherit; }
+footer { padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font: 600 11px/1.6 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--mist); }
+footer a { text-decoration: none; color: var(--fog); }
+
+@media (max-width: 820px) {
+  .story-grid, .course-top, .cause-grid { grid-template-columns: 1fr; }
+  .dash { grid-template-columns: 1fr; }
+  .topbar nav { gap: 16px; }
+  .hero::after { background: linear-gradient(180deg, rgba(22,52,63,.35) 0%, rgba(22,52,63,.75) 55%, var(--ink) 100%); }
+}
+@media (max-width: 700px) {
+  .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: 200px; height: auto; }
+  .gallery figure.big { grid-column: span 2; grid-row: span 2; }
+  .gallery figure.tall { grid-row: span 2; }
+  .playlist-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .topbar nav a:not(.give) { display: none; }
+  .fact { grid-template-columns: 1fr; gap: 8px; }
+  .miles { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="coast" aria-hidden="true"></canvas>
+  <div class="wrap topbar">
+    <div class="mark">
+      <svg class="shield" viewBox="0 0 30 34" aria-hidden="true"><path d="M3 2h24c0 6 2 8 2 13 0 9-6 15-14 17C7 30 1 24 1 15c0-5 2-7 2-13z" fill="#0e6a3f" stroke="#fff" stroke-width="1.6"/><text x="15" y="12" text-anchor="middle" font-size="5" font-weight="700" fill="#fff" font-family="Public Sans, sans-serif">CALIFORNIA</text><text x="15" y="27" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Big Shoulders Display, sans-serif">1</text></svg>
+      Macy Runs Big Sur
+    </div>
+    <nav aria-label="Sections">
+      <a href="#story">Story</a>
+      <a href="#course">Course</a>
+      <a href="#cause">The cause</a>
+      <a class="give" href="https://donate.hakuapp.com/donations/new?fundraiser=7e737b754f559c246316" target="_blank" rel="noopener">Donate</a>
+    </nav>
+  </div>
+
+  <div class="wrap hero-main">
+    <p class="eyebrow">Big Sur International Marathon · Sunday, April 25, 2027</p>
+    <h1><span class="row"><span>From <span class="num">10.0</span></span></span><span class="row"><span>to <span class="num">26.2</span></span></span></h1>
+    <p class="sub">Macy Toronjo won a national title in gymnastics and spent five seasons as a UCLA Bruin. Now she's running 26.2 miles up Highway 1, from the redwoods of Big Sur to Carmel, to raise <strong>$3,500 for ALS research</strong>.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://donate.hakuapp.com/donations/new?fundraiser=7e737b754f559c246316" target="_blank" rel="noopener">Donate to ALS TDI <span>→</span></a>
+      <a class="btn btn-ghost" href="#course">Move her up the coast <span>↓</span></a>
+    </div>
+  </div>
+
+  <div class="wrap dash">
+    <div class="clock" aria-label="Countdown to race start">
+      <div><strong id="cd-d">—</strong><span>Days</span></div>
+      <div><strong id="cd-h">—</strong><span>Hours</span></div>
+      <div><strong id="cd-m">—</strong><span>Min</span></div>
+      <div><strong id="cd-s">—</strong><span>Sec</span></div>
+    </div>
+    <div class="meter">
+      <div class="meter-labels"><b class="js-raised">$300</b><span>raised of <span class="js-goal">$3,500</span> · <span class="js-pct">9%</span></span></div>
+      <div class="bar" role="progressbar" aria-label="Fundraising progress" aria-valuemin="0" aria-valuemax="100"><i id="bar"></i></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="story">
+    <div class="wrap story-grid">
+      <div>
+        <div class="head">
+          <p class="eyebrow">Why she's running</p>
+          <h2>Ninety seconds <em>to</em> four hours.</h2>
+        </div>
+        <div class="prose">
+          <p class="lead">For most of her life, Macy measured effort in tenths of a point.</p>
+          <p>She grew up in Huntsville, Texas, training at Texas Dreams, and in 2015 she won a Level 10 national title. That earned her a place at UCLA, where she won floor in her very first college meet and spent five seasons as a Bruin, including the year the team won the NCAA championship.</p>
+          <p>A floor routine is over in 90 seconds. A marathon is a different sport entirely. Before turning 30, Macy set herself one new goal: run 26.2 miles. She chose the California coast she called home through college, and the race many runners call the most beautiful and the most brutal in the country.</p>
+          <p>Every mile she runs is for Darrel Martin, a family friend living with ALS, and for everyone facing a disease that takes away the very control over movement that gymnastics is built on.</p>
+        </div>
+        <div class="versus" aria-label="Gymnastics versus marathon">
+          <div><b>90 sec</b><span>longest floor routine</span></div>
+          <div><b class="g">26.2 mi</b><span>Highway 1, Big Sur to Carmel</span></div>
+        </div>
+      </div>
+
+      <ol class="timeline" aria-label="Macy's path to Big Sur">
+        <li><i class="dot"></i><div><div class="yr">2015</div><h3>Level 10 National Champion</h3><p>A national title, plus a clean sweep of her state championship.</p></div></li>
+        <li><i class="dot"></i><div><div class="yr">2017</div><h3>UCLA debut</h3><p>Won floor with a 9.9 in her first collegiate meet. Later scored a 9.95, with a perfect 10.0 from one judge.</p></div></li>
+        <li><i class="dot"></i><div><div class="yr">2018</div><h3>NCAA Champions</h3><p>Part of the UCLA team that won the national title.</p></div></li>
+        <li><i class="dot"></i><div><div class="yr">2019</div><h3>Scholastic All-American</h3><p>Excellence in the gym and in the classroom.</p></div></li>
+        <li><i class="dot"></i><div><div class="yr">2027</div><h3>Big Sur International Marathon</h3><p>26.2 miles along the Pacific, for ALS TDI. This is the one you can help with.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="gym" style="padding-top:0">
+    <div class="wrap">
+      <div class="gallery">
+        <figure class="big"><img src="photos/semis_floor2017.jpg" alt="Macy performing her floor routine at the 2017 NCAA semifinal" loading="lazy" style="object-position:33% 45%"><figcaption><b>NCAA semifinal, 2017</b>Her first NCAA semifinal: 9.875 on floor.<small>Photo: Angie Wang / Daily Bruin</small></figcaption></figure>
+        <figure><img src="photos/fans2017.jpg" alt="Macy pointing to UCLA fans as she walks onto the floor" loading="lazy"><figcaption><b>Walking out</b>Saluting the UCLA fans.<small>Photo: Angie Wang / Daily Bruin</small></figcaption></figure>
+        <figure class="tall"><img src="photos/bruin2017.jpg" alt="Macy in a UCLA tank top stretching in a split on the gym floor" loading="lazy" style="object-position:52% 50%"><figcaption><b>The work</b>Daily Bruin feature, March 2017.<small>Photo: Angie Wang / Daily Bruin</small></figcaption></figure>
+        <figure><img src="photos/beam2017.jpg" alt="Macy performing on balance beam at UCLA" loading="lazy" style="object-position:60% 30%"><figcaption><b>Beam</b>Exhibition routine vs. Stanford.<small>Photo: Angie Wang / Daily Bruin</small></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block course" id="course">
+    <div class="wrap">
+      <div class="course-top">
+        <div class="head" style="margin:0">
+          <p class="eyebrow">The course</p>
+          <h2>Every dollar moves her <em>up the coast.</em></h2>
+          <p class="muted" style="max-width:52ch">$3,500 across 26.2 miles works out to about <strong class="js-permile" style="color:var(--fog)">$134</strong> a mile. The gold marker shows how far your donations have carried Macy so far. Get her past Hurricane Point, over Bixby Bridge, and into Carmel.</p>
+        </div>
+        <div class="where">
+          <span>Donations have carried her to</span>
+          <b><span class="js-mile">2.2</span><small style="font-size:.35em;color:var(--fog);margin-left:.2em">MI</small></b>
+          <span class="js-next">Next up: …</span>
+        </div>
+      </div>
+
+      <div class="profile-scroll">
+        <svg id="profile" viewBox="0 0 1000 340" role="img" aria-label="Elevation profile of the Big Sur Marathon course with Macy's fundraising position marked"></svg>
+      </div>
+      <p class="foot-note">Elevation and landmark positions are approximate. The course runs point to point, north on Highway 1.</p>
+
+      <div class="miles" id="miles" aria-label="Mile markers"></div>
+      <div class="miles-note">
+        <span>Each marker turns gold once donations cover it.</span>
+        <span class="tnum"><span class="js-done">2</span> of 26.2 miles funded</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="playlist">
+    <div class="wrap playlist-grid">
+      <div>
+        <div class="head" style="margin-bottom:0">
+          <p class="eyebrow">Request a song</p>
+          <h2>Pick what she <em>runs to.</em></h2>
+        </div>
+        <p class="muted" style="max-width:48ch;margin-top:18px">Training for 26.2 miles means a lot of hours on the road. Help fill them. Any donation comes with a song request, and Macy adds it to her training playlist.</p>
+        <ol class="steps">
+          <li><span>Tap <strong>Donate</strong> and give any amount.</span></li>
+          <li><span>Put your song and artist in the donation's comment or message box.</span></li>
+          <li><span>Watch for it here. Then imagine her hearing it at mile 20.</span></li>
+        </ol>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="https://donate.hakuapp.com/donations/new?fundraiser=7e737b754f559c246316" target="_blank" rel="noopener">Donate + request <span>→</span></a>
+          <a class="btn btn-ghost" id="playlist-link" href="#" target="_blank" rel="noopener" hidden>Listen to the playlist <span>↗</span></a>
+        </div>
+      </div>
+      <div class="tracks" aria-live="polite">
+        <div class="tracks-head"><span><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>&nbsp; Macy's Big Sur playlist</span><b id="track-count">0 songs</b></div>
+        <ol id="tracks"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="cause">
+    <div class="wrap cause-grid">
+      <div>
+        <div class="head">
+          <p class="eyebrow">The cause · ALS TDI</p>
+          <h2>Running for <em>Darrel.</em></h2>
+        </div>
+        <div class="prose">
+          <p class="darrel">Darrel Martin is a family friend who is living with ALS. He's the reason Macy chose this cause, and every mile of Big Sur is for him.</p>
+          <p>ALS (amyotrophic lateral sclerosis, also known as Lou Gehrig's disease) attacks the nerve cells that control the body's muscles. Over time it takes away the ability to walk, speak, eat, and eventually breathe. There is still no cure.</p>
+          <p>The ALS Therapy Development Institute (ALS TDI) is a nonprofit biotech lab in Watertown, Massachusetts. Since 1999 it has worked on one problem only: finding and testing treatments for ALS. Every dollar raised here goes straight to them through Macy's official fundraising page.</p>
+          <p><a class="text-link" href="https://www.als.net/" target="_blank" rel="noopener">Learn more about ALS TDI ↗</a></p>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>0</b><p>cures for ALS today. Current treatments can only slow it.</p></div>
+        <div class="fact"><b>2–5</b><p>years: how long most people live after diagnosis.</p></div>
+        <div class="fact"><b>1999</b><p>the year ALS TDI was founded. It focuses on ALS and nothing else.</p></div>
+        <div class="fact"><b class="js-raised">$300</b><p>raised by Macy so far, toward <span class="js-goal">$3,500</span>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block finale">
+    <div class="wrap">
+      <p class="eyebrow">April 25, 2027 · Carmel, California</p>
+      <h2>Get her to <em>the finish.</em></h2>
+      <div class="row-end">
+        <p class="muted" style="max-width:44ch">Any amount helps. If you can't give, sharing this page with one person who can is the next best thing.</p>
+        <div class="cta-row" style="margin:0">
+          <a class="btn btn-gold" href="https://donate.hakuapp.com/donations/new?fundraiser=7e737b754f559c246316" target="_blank" rel="noopener">Donate now <span>→</span></a>
+          <button class="btn btn-ghost share" id="share" type="button">Copy link</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Macy Runs Big Sur · 2027 · For ALS TDI</span>
+  <span><a href="https://fundraisers.hakuapp.com/fundraisers/7e737b754f559c246316" target="_blank" rel="noopener">Official fundraising page ↗</a></span>
+</footer>
+
+<script>
+(() => {
+  // ---- Settings (edit these) ----
+  const GOAL_DEFAULT = 3500;
+  const RAISED_DEFAULT = 300;          // fallback if fundraising-data.json can't load
+  const RACE_START = new Date("2027-04-25T06:45:00-07:00");  // Big Sur start, Pacific time
+  const RACE_MI = 26.2;
+
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $$ = s => document.querySelectorAll(s);
+  const money = n => "$" + Math.round(n).toLocaleString("en-US");
+
+  // Approximate elevation (feet) by mile along the course.
+  const ELEV = [[0,220],[1,250],[2,190],[3,205],[4,150],[5,105],[6,125],[7,70],[8,95],[9,70],[10,40],[10.5,110],[11,270],[11.5,410],[12,520],[12.5,390],[13.1,260],[14,285],[15,180],[16,240],[17,130],[18,200],[19,150],[20,120],[21,185],[22,95],[23,150],[24,80],[25,125],[26,70],[26.2,60]];
+  const LANDMARKS = [
+    { mi: 0,    name: "Start", sub: "Big Sur redwoods" },
+    { mi: 10,   name: "Taiko drums", sub: "Base of the climb" },
+    { mi: 12,   name: "Hurricane Point", sub: "Top of a 2-mile climb" },
+    { mi: 13.1, name: "Bixby Bridge", sub: "Halfway · grand piano" },
+    { mi: 26.2, name: "Finish", sub: "Carmel" },
+  ];
+  const MILE_NAMES = { 1: "Redwoods", 10: "Taiko drums", 11: "The climb", 12: "Hurricane Point", 13: "Bixby Bridge", 26: "Carmel" };
+
+  // ---- Countdown ----
+  const cd = ["d","h","m","s"].map(k => document.getElementById("cd-" + k));
+  function tick() {
+    let t = Math.max(0, RACE_START - Date.now()) / 1000;
+    const d = Math.floor(t / 86400); t -= d * 86400;
+    const h = Math.floor(t / 3600);  t -= h * 3600;
+    const m = Math.floor(t / 60);    const s = Math.floor(t - m * 60);
+    cd[0].textContent = d; cd[1].textContent = String(h).padStart(2, "0");
+    cd[2].textContent = String(m).padStart(2, "0"); cd[3].textContent = String(s).padStart(2, "0");
+  }
+  tick(); setInterval(tick, 1000);
+
+  // ---- Elevation profile ----
+  const svg = document.getElementById("profile");
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 1000, H = 340, L = 44, R = 24, T = 92, B = 40;
+  const MAXFT = 600;
+  const x = mi => L + (mi / RACE_MI) * (W - L - R);
+  const y = ft => T + (1 - ft / MAXFT) * (H - T - B);
+  const el = (tag, attrs, parent = svg) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); parent.appendChild(n); return n; };
+  function elevAt(mi) {
+    for (let i = 1; i < ELEV.length; i++) {
+      const [m1, e1] = ELEV[i]; const [m0, e0] = ELEV[i - 1];
+      if (mi <= m1) return e0 + (e1 - e0) * ((mi - m0) / (m1 - m0));
+    }
+    return ELEV[ELEV.length - 1][1];
+  }
+  // smooth path through points (Catmull-Rom → Bézier)
+  function pathFor(pts) {
+    let d = `M${pts[0][0]},${pts[0][1]}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      d += ` C${p1[0] + (p2[0] - p0[0]) / 6},${p1[1] + (p2[1] - p0[1]) / 6} ${p2[0] - (p3[0] - p1[0]) / 6},${p2[1] - (p3[1] - p1[1]) / 6} ${p2[0]},${p2[1]}`;
+    }
+    return d;
+  }
+  const pts = ELEV.map(([m, e]) => [x(m), y(e)]);
+  const line = pathFor(pts);
+  const defs = el("defs", {});
+  const g1 = el("linearGradient", { id: "fillg", x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+  el("stop", { offset: 0, "stop-color": "#4f8f95", "stop-opacity": .45 }, g1);
+  el("stop", { offset: 1, "stop-color": "#4f8f95", "stop-opacity": 0 }, g1);
+  const g2 = el("linearGradient", { id: "doneg", x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+  el("stop", { offset: 0, "stop-color": "#f4b740", "stop-opacity": .55 }, g2);
+  el("stop", { offset: 1, "stop-color": "#f4b740", "stop-opacity": .02 }, g2);
+  const clip = el("clipPath", { id: "doneclip" }, defs);
+  const clipRect = el("rect", { x: L, y: 0, width: 0, height: H }, clip);
+
+  // grid + axis labels
+  [0, 200, 400, 600].forEach(ft => {
+    el("line", { x1: L, x2: W - R, y1: y(ft), y2: y(ft), stroke: "#37636f", "stroke-dasharray": ft ? "2 6" : "0", "stroke-width": 1 });
+    el("text", { x: L - 8, y: y(ft) + 4, "text-anchor": "end", "font-size": 11, fill: "#a9c0c1" }).textContent = ft ? ft + "′" : "0";
+  });
+  for (let m = 0; m <= 26; m += 2) {
+    el("text", { x: x(m), y: H - B + 22, "text-anchor": "middle", "font-size": 11, fill: "#a9c0c1" }).textContent = m;
+  }
+  el("text", { x: W - R, y: H - B + 22, "text-anchor": "end", "font-size": 11, fill: "#f4b740", "font-weight": 700 }).textContent = "26.2 mi";
+
+  const base = `${line} L${x(RACE_MI)},${y(0)} L${x(0)},${y(0)} Z`;
+  el("path", { d: base, fill: "url(#fillg)" });
+  el("path", { d: base, fill: "url(#doneg)", "clip-path": "url(#doneclip)" });
+  el("path", { d: line, fill: "none", stroke: "#a9c0c1", "stroke-width": 2 });
+  el("path", { d: line, fill: "none", stroke: "#f4b740", "stroke-width": 3.5, "clip-path": "url(#doneclip)", "stroke-linecap": "round" });
+
+  // landmarks, staggered label heights so close ones don't collide
+  const lift = [0, 0, 40, 0, 0];
+  LANDMARKS.forEach((lm, i) => {
+    const lx = x(lm.mi), ly = y(elevAt(lm.mi));
+    const ty = 26 + lift[i];
+    const anchor = i === 0 ? "start" : i === LANDMARKS.length - 1 ? "end" : "middle";
+    el("line", { x1: lx, x2: lx, y1: ty + 26, y2: ly - 6, stroke: "#a9c0c1", "stroke-width": 1, "stroke-dasharray": "1 3" });
+    el("circle", { cx: lx, cy: ly, r: 4, fill: "#16343f", stroke: "#e4ebe9", "stroke-width": 2 });
+    el("text", { x: lx, y: ty, "text-anchor": anchor, "font-size": 13, "font-weight": 700, fill: "#e4ebe9" }).textContent = lm.name;
+    el("text", { x: lx, y: ty + 16, "text-anchor": anchor, "font-size": 11, fill: "#a9c0c1" }).textContent = lm.sub;
+  });
+
+  // runner marker
+  const runner = el("g", {});
+  el("circle", { r: 14, fill: "#f4b740", opacity: .22 }, runner).innerHTML = reduce ? "" : '<animate attributeName="r" values="10;20;10" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".35;0;.35" dur="1.8s" repeatCount="indefinite"/>';
+  el("circle", { r: 7, fill: "#f4b740", stroke: "#16343f", "stroke-width": 2.5 }, runner);
+  const tag = el("g", {}, runner);
+  el("rect", { x: -36, y: -42, width: 72, height: 22, rx: 11, fill: "#f4b740" }, tag);
+  const tagText = el("text", { x: 0, y: -27, "text-anchor": "middle", "font-size": 12, "font-weight": 800, fill: "#241703" }, tag);
+  tagText.textContent = "MACY";
+
+  function placeRunner(mi) {
+    const px = x(mi), py = y(elevAt(mi));
+    runner.setAttribute("transform", `translate(${px},${py})`);
+    clipRect.setAttribute("width", Math.max(0, px - L));
+  }
+
+  // ---- Mile markers ----
+  const milesEl = document.getElementById("miles");
+  const miles = [...Array(26)].map((_, i) => i + 1).concat([26.2]);
+  milesEl.innerHTML = miles.map(m => `<div class="mile" data-mi="${m}"><small>MILE</small><b>${m}</b><em>${MILE_NAMES[m] || (m === 26.2 ? "Finish line" : "")}</em></div>`).join("");
+
+  // ---- Apply totals ----
+  function render(raised, goal) {
+    const frac = Math.max(0, Math.min(1, raised / goal));
+    const mi = +(frac * RACE_MI).toFixed(1);
+    $$(".js-raised").forEach(n => n.textContent = money(raised));
+    $$(".js-goal").forEach(n => n.textContent = money(goal));
+    $$(".js-pct").forEach(n => n.textContent = Math.round(frac * 100) + "%");
+    $$(".js-permile").forEach(n => n.textContent = money(goal / RACE_MI));
+    $$(".js-mile").forEach(n => n.textContent = mi.toFixed(1));
+    $$(".js-done").forEach(n => n.textContent = Math.floor(mi));
+    const next = LANDMARKS.find(l => l.mi > mi);
+    $$(".js-next").forEach(n => n.textContent = next ? `Next up: ${next.name}, mile ${next.mi} · ${money(next.mi / RACE_MI * goal - raised)} to go` : "She made it to Carmel. Thank you!");
+    const bar = document.getElementById("bar");
+    bar.parentElement.setAttribute("aria-valuenow", Math.round(frac * 100));
+    requestAnimationFrame(() => { bar.style.width = (frac * 100) + "%"; });
+    milesEl.querySelectorAll(".mile").forEach(a => {
+      const m = +a.dataset.mi;
+      a.classList.toggle("done", m <= mi);
+      a.classList.toggle("here", m > mi && m - 1 < mi + 1e-9 && !(m === 26.2 && mi < 26));
+    });
+    animateRunner(mi);
+  }
+  let shown = 0, raf;
+  function animateRunner(target) {
+    cancelAnimationFrame(raf);
+    if (reduce) { placeRunner(target); shown = target; return; }
+    const from = 0, start = performance.now(), dur = 2200;
+    const step = now => {
+      const k = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - k, 3);
+      shown = from + (target - from) * e; placeRunner(shown);
+      if (k < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+  }
+  placeRunner(0);
+  render(RAISED_DEFAULT, GOAL_DEFAULT);
+
+  // Replay the runner when the course scrolls into view
+  if ("IntersectionObserver" in window && !reduce) {
+    let played = false;
+    new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && !played) { played = true; animateRunner(current.mi); }
+    }), { threshold: .35 }).observe(svg);
+  }
+  const current = { mi: RAISED_DEFAULT / GOAL_DEFAULT * RACE_MI };
+
+  // Live total, written hourly by the GitHub Action
+  fetch("fundraising-data.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(d => {
+      const raised = Number(d.raised), goal = Number(d.goal) || GOAL_DEFAULT;
+      if (!isFinite(raised)) return;
+      current.mi = Math.min(1, raised / goal) * RACE_MI;
+      render(raised, goal);
+    })
+    .catch(() => {});
+
+  // ---- Song requests (edit songs.json to add them) ----
+  const tracksEl = document.getElementById("tracks"), countEl = document.getElementById("track-count");
+  const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  function renderSongs(data) {
+    const songs = (data && data.songs) || [];
+    countEl.textContent = songs.length + (songs.length === 1 ? " song" : " songs");
+    tracksEl.innerHTML = songs.length
+      ? songs.map(s => `<li><div class="song"><b>${esc(s.title)}</b><span>${esc(s.artist)}</span></div><span class="from">${s.from ? "from " + esc(s.from) : ""}</span></li>`).join("")
+      : `<li class="empty" style="display:block"><b>Track 01 is open</b>No requests yet. Donate and make yours the first song on the list.</li>`;
+    const link = document.getElementById("playlist-link");
+    if (data && data.playlist_url) { link.href = data.playlist_url; link.hidden = false; }
+  }
+  renderSongs(null);
+  fetch("songs.json", { cache: "no-store" }).then(r => r.ok ? r.json() : null).then(d => d && renderSongs(d)).catch(() => {});
+
+  // ---- Copy link ----
+  const share = document.getElementById("share");
+  share.addEventListener("click", () => {
+    const url = location.href.split("#")[0];
+    const done = msg => { share.textContent = msg; setTimeout(() => share.textContent = "Copy link", 2200); };
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
+      .then(() => done("Link copied ✓"))
+      .catch(() => done(url));
+  });
+
+  // ---- Hero coastline (canvas) ----
+  const cv = document.getElementById("coast"), cx = cv.getContext("2d");
+  let cw, ch, dpr, ridges = [], fogs = [];
+  function noise(seed) { // smooth 1D value from layered sines
+    return t => Math.sin(t * 1.7 + seed) * .5 + Math.sin(t * 3.9 + seed * 2.1) * .25 + Math.sin(t * 9.3 + seed * 3.7) * .1;
+  }
+  function setup() {
+    dpr = Math.min(2, devicePixelRatio || 1);
+    cw = cv.clientWidth; ch = cv.clientHeight;
+    cv.width = cw * dpr; cv.height = ch * dpr;
+    cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const narrow = cw < 820;
+    // Ridges rise toward the right, like the Santa Lucia range dropping into the sea.
+    ridges = [
+      { seed: 1.3, base: .60, amp: .07, start: narrow ? .05 : .30, color: "#33606b" },
+      { seed: 4.1, base: .64, amp: .09, start: narrow ? .15 : .42, color: "#29525d" },
+      { seed: 7.7, base: .70, amp: .10, start: narrow ? .25 : .52, color: "#1f4550", bridge: true },
+      { seed: 2.9, base: .80, amp: .08, start: narrow ? .40 : .66, color: "#173a45" },
+    ];
+    fogs = [...Array(narrow ? 5 : 8)].map((_, i) => ({ x: Math.random() * cw, y: ch * (.5 + Math.random() * .3), r: 120 + Math.random() * 220, v: .08 + Math.random() * .18, a: .05 + Math.random() * .07 }));
+  }
+  function ridgeY(r, px) {
+    const t = (px / cw - r.start) / (1 - r.start); // 0 at shoreline, 1 at right edge
+    if (t <= 0) return null;
+    const rise = Math.pow(Math.min(1, t * 1.6), .7);
+    return ch * (r.base + .25 - rise * (.25 + r.amp) + noise(r.seed)(px / cw * 4) * r.amp * .6 * rise);
+  }
+  function draw(time) {
+    const horizon = ch * .6;
+    // sky
+    const sky = cx.createLinearGradient(0, 0, 0, horizon);
+    sky.addColorStop(0, "#163845"); sky.addColorStop(.65, "#2c5560"); sky.addColorStop(1, "#7a7160");
+    cx.fillStyle = sky; cx.fillRect(0, 0, cw, horizon + 2);
+    // low sun glow
+    const sx = cw * (cw < 820 ? .7 : .62), sy = horizon - ch * .03;
+    const sun = cx.createRadialGradient(sx, sy, 0, sx, sy, ch * .5);
+    sun.addColorStop(0, "rgba(244,183,64,.55)"); sun.addColorStop(.12, "rgba(244,183,64,.22)"); sun.addColorStop(1, "rgba(244,183,64,0)");
+    cx.fillStyle = sun; cx.fillRect(0, 0, cw, horizon + 2);
+    cx.fillStyle = "rgba(255,214,140,.9)"; cx.beginPath(); cx.arc(sx, sy, ch * .022, Math.PI, 0); cx.fill();
+    // ocean
+    const sea = cx.createLinearGradient(0, horizon, 0, ch);
+    sea.addColorStop(0, "#3a5a63"); sea.addColorStop(1, "#14323c");
+    cx.fillStyle = sea; cx.fillRect(0, horizon, cw, ch - horizon);
+    // sun path glints on the water
+    for (let i = 0; i < 46; i++) {
+      const yy = horizon + Math.pow(i / 46, 1.6) * (ch - horizon);
+      const spread = 8 + (yy - horizon) * .55;
+      const off = Math.sin(time / 900 + i * 1.3) * spread * .5;
+      cx.fillStyle = `rgba(244,183,64,${.35 * (1 - i / 46)})`;
+      cx.fillRect(sx + off - spread * .3, yy, spread * .6 * (.4 + .6 * Math.abs(Math.sin(time / 700 + i))), 1.4);
+    }
+    // swell lines
+    cx.strokeStyle = "rgba(228,235,233,.05)"; cx.lineWidth = 1;
+    for (let i = 1; i < 14; i++) {
+      const yy = horizon + Math.pow(i / 14, 1.8) * (ch - horizon);
+      cx.beginPath();
+      for (let px = 0; px <= cw; px += 20) cx.lineTo(px, yy + Math.sin(px / 80 + time / 1400 + i) * (1 + i * .25));
+      cx.stroke();
+    }
+    // ridges + fog between them
+    ridges.forEach((r, idx) => {
+      cx.beginPath(); cx.moveTo(cw, ch);
+      let first = true, bridgeAt = null;
+      for (let px = cw; px >= 0; px -= 4) {
+        const yy = ridgeY(r, px);
+        if (yy === null) { cx.lineTo(px, ch); break; }
+        cx.lineTo(px, yy);
+        if (r.bridge && bridgeAt === null && px / cw < r.start + (1 - r.start) * .32) bridgeAt = [px, yy];
+      }
+      cx.lineTo(0, ch); cx.closePath();
+      cx.fillStyle = r.color; cx.fill();
+      if (r.bridge && bridgeAt) drawBridge(bridgeAt[0], bridgeAt[1], r);
+      // fog band after the second ridge
+      if (idx === 1 || idx === 2) fogs.forEach((f, j) => {
+        if (j % 2 !== idx % 2) return;
+        f.x += f.v * (reduce ? 0 : 1); if (f.x - f.r > cw) f.x = -f.r;
+        const fg = cx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.r);
+        fg.addColorStop(0, `rgba(214,226,226,${f.a})`); fg.addColorStop(1, "rgba(214,226,226,0)");
+        cx.fillStyle = fg; cx.fillRect(f.x - f.r, f.y - f.r, f.r * 2, f.r * 2);
+      });
+    });
+  }
+  // A small silhouette of Bixby Bridge spanning a canyon notch.
+  function drawBridge(bx, by, r) {
+    const span = Math.min(170, cw * .14), h = span * .42;
+    const x0 = bx - span / 2, deck = by - h * .15;
+    // carve the canyon under the deck
+    cx.fillStyle = "#29525d";
+    cx.beginPath(); cx.moveTo(x0, deck); cx.quadraticCurveTo(bx, deck + h * 1.9, x0 + span, deck); cx.lineTo(x0 + span, ch); cx.lineTo(x0, ch); cx.fill();
+    cx.fillStyle = r.color; cx.strokeStyle = r.color;
+    cx.fillRect(x0 - 10, deck - 3, span + 20, 4);                  // deck
+    cx.lineWidth = 3; cx.beginPath();
+    cx.moveTo(x0 + span * .08, deck + h * .95);
+    cx.quadraticCurveTo(bx, deck - h * .55, x0 + span * .92, deck + h * .95); cx.stroke(); // arch
+    cx.lineWidth = 1.4;
+    for (let i = 1; i < 12; i++) {                                    // spandrel columns
+      const px = x0 + span * (i / 12), t = (px - (x0 + span * .08)) / (span * .84);
+      const archY = (deck + h * .95) * (1 - t) * (1 - t) + 2 * (1 - t) * t * (deck - h * .55) + t * t * (deck + h * .95);
+      cx.beginPath(); cx.moveTo(px, deck); cx.lineTo(px, Math.max(deck, archY)); cx.stroke();
+    }
+  }
+  setup();
+  addEventListener("resize", () => { setup(); if (reduce) draw(0); });
+  if (reduce) draw(0);
+  else { const loop = t => { draw(t); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
+})();
+</script>
+</body>
+</html>
